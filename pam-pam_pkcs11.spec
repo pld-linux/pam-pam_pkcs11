@@ -5,9 +5,9 @@ Version:	0.5.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.opensc.org/files/pam_pkcs11/pam_pkcs11-%{version}.tar.gz
+Source0:	http://www.opensc-project.org/files/pam_pkcs11/pam_pkcs11-%{version}.tar.gz
 # Source0-md5:	607e3ba84b8938eff20c51c597e522c0
-URL:		http://www.opensc.org/pam_pkcs11/
+URL:		http://www.opensc-project.org/pam_pkcs11/
 BuildRequires:	curl-devel
 BuildRequires:	libxslt-progs
 BuildRequires:	openldap-devel
