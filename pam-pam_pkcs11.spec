@@ -1,5 +1,5 @@
 Summary:	PAM login module that allows a X.509 certificate based user login
-Summary(pl):	Modu³ PAM umo¿liwiaj±cy logowanie siê w oparciu o certyfikat X.509
+Summary(pl.UTF-8):   ModuÅ‚ PAM umoÅ¼liwiajÄ…cy logowanie siÄ™ w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
 Version:	0.5.3
 Release:	1
@@ -26,11 +26,11 @@ means of an appropriate PKCS#11 module. For the verification of the
 users' certificates, locally stored CA certificates as well as either
 online or locally accessible CRLs are used.
 
-%description -l pl
-Ten modu³ PAM umo¿liwia logowanie siê w oparciu o certyfikaty X.509.
-Certyfikat i jego klucz prywatny s± odczytywane poprzez odpowiedni
-modu³ PKCS#11. Do weryfikacji certyfikatów u¿ytkowników u¿ywane s±
-lokalnie przechowywane certyfikaty CA albo dostêpne lokalnie lub
+%description -l pl.UTF-8
+Ten moduÅ‚ PAM umoÅ¼liwia logowanie siÄ™ w oparciu o certyfikaty X.509.
+Certyfikat i jego klucz prywatny sÄ… odczytywane poprzez odpowiedni
+moduÅ‚ PKCS#11. Do weryfikacji certyfikatÃ³w uÅ¼ytkownikÃ³w uÅ¼ywane sÄ…
+lokalnie przechowywane certyfikaty CA albo dostÄ™pne lokalnie lub
 zdalnie CRL.
 
 %prep
