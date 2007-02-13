@@ -1,5 +1,5 @@
 Summary:	PAM login module that allows a X.509 certificate based user login
-Summary(pl.UTF-8):   Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
+Summary(pl.UTF-8):	Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
 Version:	0.5.3
 Release:	1
