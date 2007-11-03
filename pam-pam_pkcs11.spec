@@ -15,7 +15,7 @@ BuildRequires:	curl-devel
 BuildRequires:	gettext-devel >= 0.16.1
 BuildRequires:	libxslt-progs
 BuildRequires:	libtool
-BuildRequires:	openldap-devel
+BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
 BuildRequires:	pcsc-lite-devel
