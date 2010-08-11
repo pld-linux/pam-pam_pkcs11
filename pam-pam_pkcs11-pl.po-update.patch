@@ -1,0 +1,65 @@
+--- pam_pkcs11-0.6.4/po/pl.po.orig	2010-06-12 17:28:14.000000000 +0200
++++ pam_pkcs11-0.6.4/po/pl.po	2010-08-11 21:48:23.114816591 +0200
+@@ -1,13 +1,13 @@
+ # Polish translation for pam_pkcs11
+ # This file is distributed under the same license as the pam_pkcs11 package.
+-# Jakub Bogusz <qboosh@pld-linux.org>, 2007.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2007-2010.
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: pam_pkcs11 0.6.0\n"
++"Project-Id-Version: pam_pkcs11 0.6.4\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2010-06-12 17:28+0200\n"
+-"PO-Revision-Date: 2007-06-14 21:55+0200\n"
++"PO-Revision-Date: 2010-08-11 21:37+0200\n"
+ "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
+ "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "MIME-Version: 1.0\n"
+@@ -15,9 +15,9 @@
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:289 src/pam_pkcs11/pam_pkcs11.c:386
+-#, fuzzy, c-format
++#, c-format
+ msgid "Please insert your %s or enter your username."
+-msgstr "Proszê w³o¿yæ w³asn± kartê procesorow± lub wpisaæ nazwê u¿ytkownika."
++msgstr "Proszê w³o¿yæ %s lub wpisaæ nazwê u¿ytkownika."
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:358
+ #, c-format
+@@ -31,7 +31,7 @@
+ #: src/pam_pkcs11/pam_pkcs11.c:408
+ #, c-format
+ msgid "Found the %s."
+-msgstr ""
++msgstr "Znaleziono %s."
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:430
+ #, c-format
+@@ -41,21 +41,17 @@
+ #: src/pam_pkcs11/pam_pkcs11.c:437
+ #, c-format
+ msgid "%s PIN: "
+-msgstr ""
++msgstr "PIN %s: "
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:469
+ #, c-format
+ msgid "Enter your %s PIN on the pinpad"
+-msgstr ""
++msgstr "Proszê wprowadziæ PIN %s na klawiaturze czytnika"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:766
+ msgid "Cannot change the password on your smart card."
+ msgstr "Nie mo¿na zmieniæ has³a na tej karcie procesorowej."
+ 
+ #: src/pam_pkcs11/pam_config.c:65
+-#, fuzzy
+ msgid "Smart card"
+-msgstr "Karta w³o¿ona."
+-
+-#~ msgid "Smart card password: "
+-#~ msgstr "Has³o do karty: "
++msgstr "Karta procesorowa"

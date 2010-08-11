@@ -1,0 +1,11 @@
+--- pam_pkcs11-0.6.4/src/tools/card_eventmgr.c.orig	2010-04-10 16:38:24.000000000 +0200
++++ pam_pkcs11-0.6.4/src/tools/card_eventmgr.c	2010-08-11 20:01:06.582816591 +0200
+@@ -312,7 +312,7 @@
+ int main(int argc, char *argv[]) {
+     int current_reader;
+     LONG rv;
+-    SCARD_READERSTATE_A *rgReaderStates_t = NULL;
++    SCARD_READERSTATE *rgReaderStates_t = NULL;
+     DWORD dwReaders, dwReadersOld;
+     LPSTR mszReaders = NULL;
+     char *ptr, **readers = NULL;

@@ -1,26 +1,29 @@
 Summary:	PAM login module that allows a X.509 certificate based user login
 Summary(pl.UTF-8):	Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
-Version:	0.6.0
+Version:	0.6.4
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/pam_pkcs11-%{version}.tar.gz
-# Source0-md5:	5f3be860fa5b630cbce113e4a9bc6996
-Source1:	pam_pkcs11.pl.po
+# Source0-md5:	680be5349314d39f34cab1e04682e915
+#Source1:	pam_pkcs11.pl.po
+Patch0:		%{name}-pcsc-update.patch
+Patch1:		%{name}-pl.po-update.patch
 URL:		http://www.opensc-project.org/pam_pkcs11/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel >= 0.16.1
+BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	libxslt-progs
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
-BuildRequires:	pcsc-lite-devel
+BuildRequires:	pcsc-lite-devel >= 1.6.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
+Requires:	pcsc-lite-libs >= 1.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libdir		/%{_lib}
@@ -41,9 +44,9 @@ zdalnie CRL.
 
 %prep
 %setup -q -n pam_pkcs11-%{version}
+%patch0 -p1
+%patch1 -p1
 
-cp -f %{SOURCE1} po/pl.po
-sed -i -e 's/"fr"/"fr pl"/' configure.in
 rm -f po/stamp-po
 
 %build
@@ -63,7 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/pam_pkcs11/*.{la,a}
+%{__rm} $RPM_BUILD_ROOT/%{_lib}/security/pam_pkcs11.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/pam_pkcs11/*.la
+
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_br,pt_BR}
 
 %find_lang pam_pkcs11
 
@@ -73,8 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 %files -f pam_pkcs11.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/{README.*,*.html,*.css} etc/*.example
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/card_eventmgr
+%attr(755,root,root) %{_bindir}/make_hash_link.sh
+%attr(755,root,root) %{_bindir}/pkcs11_*
+%attr(755,root,root) %{_bindir}/pklogin_finder
 %attr(755,root,root) /%{_lib}/security/pam_pkcs11.so
 %dir %{_libdir}/pam_pkcs11
 %attr(755,root,root) %{_libdir}/pam_pkcs11/*.so
-%{_mandir}/man[18]/*
+%{_mandir}/man1/card_eventmgr.1*
+%{_mandir}/man1/pkcs11_*.1*
+%{_mandir}/man1/pklogin_finder.1*
+%{_mandir}/man8/pam_pkcs11.8*
