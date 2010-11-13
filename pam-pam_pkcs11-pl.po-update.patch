@@ -1,5 +1,5 @@
---- pam_pkcs11-0.6.4/po/pl.po.orig	2010-06-12 17:28:14.000000000 +0200
-+++ pam_pkcs11-0.6.4/po/pl.po	2010-08-11 21:48:23.114816591 +0200
+--- pam_pkcs11-0.6.5/po/pl.po.orig	2010-10-19 09:57:26.000000000 +0200
++++ pam_pkcs11-0.6.5/po/pl.po	2010-11-13 09:00:26.591109994 +0100
 @@ -1,13 +1,13 @@
  # Polish translation for pam_pkcs11
  # This file is distributed under the same license as the pam_pkcs11 package.
@@ -9,15 +9,15 @@
  msgid ""
  msgstr ""
 -"Project-Id-Version: pam_pkcs11 0.6.0\n"
-+"Project-Id-Version: pam_pkcs11 0.6.4\n"
++"Project-Id-Version: pam_pkcs11 0.6.5\n"
  "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2010-06-12 17:28+0200\n"
+ "POT-Creation-Date: 2010-10-19 09:57+0200\n"
 -"PO-Revision-Date: 2007-06-14 21:55+0200\n"
-+"PO-Revision-Date: 2010-08-11 21:37+0200\n"
++"PO-Revision-Date: 2010-11-13 08:58+0100\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
- "MIME-Version: 1.0\n"
-@@ -15,9 +15,9 @@
+ "Language: pl\n"
+@@ -16,9 +16,9 @@
  "Content-Transfer-Encoding: 8bit\n"
  
  #: src/pam_pkcs11/pam_pkcs11.c:289 src/pam_pkcs11/pam_pkcs11.c:386
@@ -29,16 +29,16 @@
  
  #: src/pam_pkcs11/pam_pkcs11.c:358
  #, c-format
-@@ -31,7 +31,7 @@
+@@ -32,7 +32,7 @@
  #: src/pam_pkcs11/pam_pkcs11.c:408
  #, c-format
- msgid "Found the %s."
+ msgid "%s found."
 -msgstr ""
 +msgstr "Znaleziono %s."
  
  #: src/pam_pkcs11/pam_pkcs11.c:430
  #, c-format
-@@ -41,21 +41,17 @@
+@@ -42,21 +42,17 @@
  #: src/pam_pkcs11/pam_pkcs11.c:437
  #, c-format
  msgid "%s PIN: "
@@ -51,7 +51,7 @@
 -msgstr ""
 +msgstr "Proszê wprowadziæ PIN %s na klawiaturze czytnika"
  
- #: src/pam_pkcs11/pam_pkcs11.c:766
+ #: src/pam_pkcs11/pam_pkcs11.c:767
  msgid "Cannot change the password on your smart card."
  msgstr "Nie mo¿na zmieniæ has³a na tej karcie procesorowej."
  
