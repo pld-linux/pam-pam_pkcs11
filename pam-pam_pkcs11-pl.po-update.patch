@@ -1,5 +1,5 @@
---- pam_pkcs11-0.6.5/po/pl.po.orig	2010-10-19 09:57:26.000000000 +0200
-+++ pam_pkcs11-0.6.5/po/pl.po	2010-11-13 09:00:26.591109994 +0100
+--- pam_pkcs11-0.6.6/po/pl.po.orig	2010-11-20 20:52:16.000000000 +0100
++++ pam_pkcs11-0.6.6/po/pl.po	2010-12-09 19:37:04.810120259 +0100
 @@ -1,13 +1,13 @@
  # Polish translation for pam_pkcs11
  # This file is distributed under the same license as the pam_pkcs11 package.
@@ -9,11 +9,11 @@
  msgid ""
  msgstr ""
 -"Project-Id-Version: pam_pkcs11 0.6.0\n"
-+"Project-Id-Version: pam_pkcs11 0.6.5\n"
++"Project-Id-Version: pam_pkcs11 0.6.6\n"
  "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2010-10-19 09:57+0200\n"
+ "POT-Creation-Date: 2010-11-20 20:52+0100\n"
 -"PO-Revision-Date: 2007-06-14 21:55+0200\n"
-+"PO-Revision-Date: 2010-11-13 08:58+0100\n"
++"PO-Revision-Date: 2010-12-09 19:28+0100\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "Language: pl\n"
@@ -51,7 +51,7 @@
 -msgstr ""
 +msgstr "Proszê wprowadziæ PIN %s na klawiaturze czytnika"
  
- #: src/pam_pkcs11/pam_pkcs11.c:767
+ #: src/pam_pkcs11/pam_pkcs11.c:770
  msgid "Cannot change the password on your smart card."
  msgstr "Nie mo¿na zmieniæ has³a na tej karcie procesorowej."
  
