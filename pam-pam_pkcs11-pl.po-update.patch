@@ -1,57 +1,205 @@
---- pam_pkcs11-0.6.6/po/pl.po.orig	2010-11-20 20:52:16.000000000 +0100
-+++ pam_pkcs11-0.6.6/po/pl.po	2010-12-09 19:37:04.810120259 +0100
+--- pam_pkcs11-0.6.7/po/pl.po.orig	2011-08-06 15:28:49.000000000 +0200
++++ pam_pkcs11-0.6.7/po/pl.po	2011-08-11 18:45:07.076497885 +0200
 @@ -1,13 +1,13 @@
  # Polish translation for pam_pkcs11
  # This file is distributed under the same license as the pam_pkcs11 package.
 -# Jakub Bogusz <qboosh@pld-linux.org>, 2007.
-+# Jakub Bogusz <qboosh@pld-linux.org>, 2007-2010.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2007-2011.
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: pam_pkcs11 0.6.0\n"
-+"Project-Id-Version: pam_pkcs11 0.6.6\n"
++"Project-Id-Version: pam_pkcs11 0.6.7\n"
  "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2010-11-20 20:52+0100\n"
+ "POT-Creation-Date: 2011-08-06 15:28+0200\n"
 -"PO-Revision-Date: 2007-06-14 21:55+0200\n"
-+"PO-Revision-Date: 2010-12-09 19:28+0100\n"
++"PO-Revision-Date: 2011-08-11 16:22+0200\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "Language: pl\n"
-@@ -16,9 +16,9 @@
- "Content-Transfer-Encoding: 8bit\n"
+@@ -18,27 +18,27 @@
+ #: src/pam_pkcs11/pam_pkcs11.c:197
+ #, c-format
+ msgid "Smartcard authentification starts"
+-msgstr ""
++msgstr "Rozpoczêcie uwierzytelniania kart± procesorow±"
  
- #: src/pam_pkcs11/pam_pkcs11.c:289 src/pam_pkcs11/pam_pkcs11.c:386
+ #: src/pam_pkcs11/pam_pkcs11.c:293 src/pam_pkcs11/pam_pkcs11.c:409
 -#, fuzzy, c-format
 +#, c-format
  msgid "Please insert your %s or enter your username."
 -msgstr "Proszê w³o¿yæ w³asn± kartê procesorow± lub wpisaæ nazwê u¿ytkownika."
-+msgstr "Proszê w³o¿yæ %s lub wpisaæ nazwê u¿ytkownika."
++msgstr "Proszê w³o¿yæ token (%s) lub wpisaæ nazwê u¿ytkownika."
  
- #: src/pam_pkcs11/pam_pkcs11.c:358
+ #: src/pam_pkcs11/pam_pkcs11.c:324
  #, c-format
-@@ -32,7 +32,7 @@
- #: src/pam_pkcs11/pam_pkcs11.c:408
+ msgid "Error 2302: PKCS#11 module failed loading"
+-msgstr ""
++msgstr "B³±d 2302: wczytanie modu³u PKCS#11 nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:339
+ #, c-format
+ msgid "Error 2304: PKCS#11 module could not be initialized"
+-msgstr ""
++msgstr "B³±d 2304: nie uda³o siê zainicjowaæ modu³u PKCS#11"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:359
+ #, c-format
+ msgid "Error 2306: No suitable token available"
+-msgstr ""
++msgstr "B³±d 2306: Brak odpowiedniego tokenu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:374
+ #, c-format
+@@ -52,27 +52,27 @@
+ #: src/pam_pkcs11/pam_pkcs11.c:397
+ #, c-format
+ msgid "Error 2308: No smartcard found"
+-msgstr ""
++msgstr "B³±d 2308: Nie znaleziono karty procesorowej"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:426
+ #, c-format
+ msgid "Error 2310: No smartcard found"
+-msgstr ""
++msgstr "B³±d 2310: Nie znaleziono karty procesorowej"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:437
  #, c-format
  msgid "%s found."
 -msgstr ""
-+msgstr "Znaleziono %s."
++msgstr "Znaleziono token: %s."
  
- #: src/pam_pkcs11/pam_pkcs11.c:430
+ #: src/pam_pkcs11/pam_pkcs11.c:445
  #, c-format
-@@ -42,21 +42,17 @@
- #: src/pam_pkcs11/pam_pkcs11.c:437
+ msgid "Error 2312: open PKCS#11 session failed"
+-msgstr ""
++msgstr "B³±d 2312: nie uda³o siê otworzyæ sesji PKCS#11"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:458
+ #, c-format
+ msgid "Error 2314: Slot login failed"
+-msgstr ""
++msgstr "B³±d 2314: Logowanie przez slot nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:467
+ #, c-format
+@@ -82,106 +82,102 @@
+ #: src/pam_pkcs11/pam_pkcs11.c:474
  #, c-format
  msgid "%s PIN: "
 -msgstr ""
-+msgstr "PIN %s: "
++msgstr "%s - PIN: "
  
- #: src/pam_pkcs11/pam_pkcs11.c:469
+ #: src/pam_pkcs11/pam_pkcs11.c:485
+ #, c-format
+ msgid "Error 2316: password could not be read"
+-msgstr ""
++msgstr "B³±d 2316: nie uda³o siê odczytaæ has³a"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:506
+ #, c-format
+ msgid "Error 2318: Empty smartcard PIN not allowed."
+-msgstr ""
++msgstr "B³±d 2318: Pusty PIN karty procesorowej nie jest dozwolony."
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:516
  #, c-format
  msgid "Enter your %s PIN on the pinpad"
 -msgstr ""
-+msgstr "Proszê wprowadziæ PIN %s na klawiaturze czytnika"
++msgstr "Proszê wprowadziæ PIN tokenu (%s) na klawiaturze czytnika"
  
- #: src/pam_pkcs11/pam_pkcs11.c:770
+ #: src/pam_pkcs11/pam_pkcs11.c:536
+ #, c-format
+ msgid "Error 2320: Wrong smartcard PIN"
+-msgstr ""
++msgstr "B³±d 2320: B³êdny PIN karty procesorowej"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:549
+ #, c-format
+ msgid "Error 2322: No certificate found"
+-msgstr ""
++msgstr "B³±d 2322: Nie znaleziono certyfikatu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:565
+ #, c-format
+ msgid "verifying certificate"
+-msgstr ""
++msgstr "weryfikacja certyfikatu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:578
+ #, c-format
+ msgid "Error 2324: Certificate has expired"
+-msgstr ""
++msgstr "B³±d 2324: Certyfikat wygas³"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:581
+ #, c-format
+ msgid "Error 2326: Certificate not yet valid"
+-msgstr ""
++msgstr "B³±d 2326: Certyfikat jeszcze nie jest wa¿ny"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:584
+ #, c-format
+ msgid "Error 2328: Certificate signature invalid"
+-msgstr ""
++msgstr "B³±d 2328: B³êdny podpis certyfikatu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:587
+ #, c-format
+ msgid "Error 2330: Certificate invalid"
+-msgstr ""
++msgstr "B³±d 2330: B³êdny certyfikat"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:623
+ #, c-format
+ msgid "Error 2332: setting PAM userentry failed"
+-msgstr ""
++msgstr "B³±d 2332: ustawienie wpisu u¿ytkownika PAM nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:640
+ #, c-format
+ msgid "Error 2334: No matching user"
+-msgstr ""
++msgstr "B³±d 2334: Brak pasuj±cego u¿ytkownika"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:662
+ #, c-format
+ msgid "Error 2336: No matching certificate found"
+-msgstr ""
++msgstr "B³±d 2336: Nie znaleziono pasuj±cego certyfikatu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:672
+ #, c-format
+ msgid "Checking signature"
+-msgstr ""
++msgstr "Sprawdzanie podpisu"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:693
+ #, c-format
+ msgid "Error 2338: Getting random value failed"
+-msgstr ""
++msgstr "B³±d 2338: Pobranie warto¶ci losowej nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:708
+ #, c-format
+ msgid "Error 2340: Signing failed"
+-msgstr ""
++msgstr "B³±d 2340: Podpisanie nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:728
+ #, c-format
+ msgid "Error 2342: Verifying signature failed"
+-msgstr ""
++msgstr "B³±d 2342: Sprawdzenie podpisu nie powiod³o siê"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:810
+ #, c-format
+ msgid "Error 2344: Closing PKCS#11 session failed"
+-msgstr ""
++msgstr "B³±d 2344: B³±d zamykania sesji PKCS#11"
+ 
+ #: src/pam_pkcs11/pam_pkcs11.c:877
  msgid "Cannot change the password on your smart card."
  msgstr "Nie mo¿na zmieniæ has³a na tej karcie procesorowej."
  
