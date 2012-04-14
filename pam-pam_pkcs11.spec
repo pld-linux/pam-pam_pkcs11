@@ -1,13 +1,12 @@
 Summary:	PAM login module that allows a X.509 certificate based user login
 Summary(pl.UTF-8):	Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
-Version:	0.6.7
+Version:	0.6.8
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opensc-project.org/files/pam_pkcs11/pam_pkcs11-%{version}.tar.gz
-# Source0-md5:	a0a3fbd8bf2b0b41bb00eb820239cc91
-Patch0:		%{name}-pl.po-update.patch
+# Source0-md5:	5ca42826b60ffcb574cc16b965f56b00
 URL:		http://www.opensc-project.org/pam_pkcs11/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -41,7 +40,6 @@ zdalnie CRL.
 
 %prep
 %setup -q -n pam_pkcs11-%{version}
-%patch0 -p1
 
 %{__rm} po/stamp-po
 
@@ -53,6 +51,7 @@ zdalnie CRL.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--with-curl
 %{__make}
 
