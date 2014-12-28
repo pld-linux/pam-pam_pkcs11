@@ -11,7 +11,7 @@ URL:		http://www.opensc-project.org/pam_pkcs11/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel >= 0.17
+BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	libxslt-progs
 BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.4.6
