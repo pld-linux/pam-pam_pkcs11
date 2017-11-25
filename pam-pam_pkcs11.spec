@@ -1,25 +1,34 @@
+#
+# Conditional build:
+%bcond_without	curl	# cURL support
+%bcond_without	ldap	# LDAP support (via OpenLDAP)
+%bcond_with	nss	# NSS instead of OpenSSL
+%bcond_without	pcsc	# PC/SC Lite support
+
 Summary:	PAM login module that allows a X.509 certificate based user login
 Summary(pl.UTF-8):	Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
-Version:	0.6.8
+Version:	0.6.9
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.opensc-project.org/files/pam_pkcs11/pam_pkcs11-%{version}.tar.gz
-# Source0-md5:	5ca42826b60ffcb574cc16b965f56b00
-URL:		http://www.opensc-project.org/pam_pkcs11/
-BuildRequires:	autoconf >= 2.52
+#Source0Download: https://github.com/OpenSC/pam_pkcs11/releases
+Source0:	https://github.com/OpenSC/pam_pkcs11/archive/pam_pkcs11-%{version}.tar.gz
+# Source0-md5:	e09e5e54ca92e0610e70eef9170e2355
+URL:		https://github.com/OpenSC/pam_pkcs11
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
-BuildRequires:	curl-devel
+%{?with_curl:BuildRequires:	curl-devel}
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	libxslt-progs
-BuildRequires:	libtool
-BuildRequires:	openldap-devel >= 2.4.6
-BuildRequires:	openssl-devel
+BuildRequires:	libtool >= 2:2
+%{?with_nss:BuildRequires:	nss-devel}
+%{?with_ldap:BuildRequires:	openldap-devel >= 2.4.6}
+%{!?with_nss:BuildRequires:	openssl-devel}
 BuildRequires:	pam-devel
-BuildRequires:	pcsc-lite-devel >= 1.6.0
+%{?with_pcsc:BuildRequires:	pcsc-lite-devel >= 1.6.0}
 BuildRequires:	pkgconfig
-Requires:	pcsc-lite-libs >= 1.6.0
+%{?with_pcsc:Requires:	pcsc-lite-libs >= 1.6.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libdir		/%{_lib}
@@ -39,9 +48,7 @@ lokalnie przechowywane certyfikaty CA albo dostępne lokalnie lub
 zdalnie CRL.
 
 %prep
-%setup -q -n pam_pkcs11-%{version}
-
-%{__rm} po/stamp-po
+%setup -q -n pam_pkcs11-pam_pkcs11-%{version}
 
 %build
 %{__gettextize}
@@ -52,7 +59,10 @@ zdalnie CRL.
 %{__automake}
 %configure \
 	--disable-silent-rules \
-	--with-curl
+	%{?with_curl:--with-curl} \
+	%{!?with_ldap:--without-ldap} \
+	%{?with_nss:--with-nss} \
+	%{!?with_pcsc:--without-pcsclite}
 %{__make}
 
 %install
@@ -63,8 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT/%{_lib}/security/pam_pkcs11.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/pam_pkcs11/*.la
-
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/{pt_br,pt_BR}
+# packaged as %doc
+%{__rm} $RPM_BUILD_ROOT%{_docdir}/pam_pkcs11/*.example
 
 %find_lang pam_pkcs11
 
@@ -75,7 +85,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/{README.*,*.html,*.css} etc/*.example
 %attr(755,root,root) %{_bindir}/card_eventmgr
-%attr(755,root,root) %{_bindir}/pkcs11_*
+%attr(755,root,root) %{_bindir}/pkcs11_eventmgr
+%attr(755,root,root) %{_bindir}/pkcs11_inspect
+%attr(755,root,root) %{_bindir}/pkcs11_listcerts
+%attr(755,root,root) %{_bindir}/pkcs11_make_hash_link
+%attr(755,root,root) %{_bindir}/pkcs11_setup
 %attr(755,root,root) %{_bindir}/pklogin_finder
 %attr(755,root,root) /%{_lib}/security/pam_pkcs11.so
 %dir %{_libdir}/pam_pkcs11
