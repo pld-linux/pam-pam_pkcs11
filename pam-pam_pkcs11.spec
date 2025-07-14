@@ -50,7 +50,7 @@ zdalnie CRL.
 
 %prep
 %setup -q -n pam_pkcs11-pam_pkcs11-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__gettextize}
