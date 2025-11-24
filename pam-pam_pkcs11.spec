@@ -8,14 +8,13 @@
 Summary:	PAM login module that allows a X.509 certificate based user login
 Summary(pl.UTF-8):	Moduł PAM umożliwiający logowanie się w oparciu o certyfikat X.509
 Name:		pam-pam_pkcs11
-Version:	0.6.10
-Release:	3
+Version:	0.6.13
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: https://github.com/OpenSC/pam_pkcs11/releases
 Source0:	https://github.com/OpenSC/pam_pkcs11/archive/pam_pkcs11-%{version}.tar.gz
-# Source0-md5:	8ededc8acdcc6084ad52ee03bdf9e4d3
-Patch0:		%{name}-openssl.patch
+# Source0-md5:	329426f89f13a5374828c35199c54d73
 URL:		https://github.com/OpenSC/pam_pkcs11
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -50,7 +49,6 @@ zdalnie CRL.
 
 %prep
 %setup -q -n pam_pkcs11-pam_pkcs11-%{version}
-%patch -P0 -p1
 
 %build
 %{__gettextize}
@@ -78,12 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 # packaged as %doc
 %{__rm} $RPM_BUILD_ROOT%{_docdir}/pam_pkcs11/*.example
 
-%find_lang pam_pkcs11
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f pam_pkcs11.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/{README.*,*.html,*.css} etc/*.example
 %attr(755,root,root) %{_bindir}/card_eventmgr
@@ -93,9 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pkcs11_make_hash_link
 %attr(755,root,root) %{_bindir}/pkcs11_setup
 %attr(755,root,root) %{_bindir}/pklogin_finder
-%attr(755,root,root) /%{_lib}/security/pam_pkcs11.so
+%{_libdir}/security/pam_pkcs11.so
 %dir %{_libdir}/pam_pkcs11
-%attr(755,root,root) %{_libdir}/pam_pkcs11/*.so
+%{_libdir}/pam_pkcs11/*.so
+%{_prefix}%{systemdunitdir}/pkcs11-eventmgr.service
 %{_mandir}/man1/card_eventmgr.1*
 %{_mandir}/man1/pkcs11_*.1*
 %{_mandir}/man1/pklogin_finder.1*
